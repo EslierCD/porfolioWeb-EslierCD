@@ -1,0 +1,61 @@
+---
+const personalImageAlt = "EslierCD"
+import Badge from "../components/Badge.astro"
+import LinkedInIcon from "../icons/LinkedIn.astro"
+import GitHubIcon from "../icons/GitHubIcon.astro"
+import MailIcon from "../icons/Mail.astro"
+import Pdf from "../icons/Pdf.astro"
+import Youtube from "../icons/YouTube.astro"
+import SocialPill from "../components/SocialPill.astro"
+---
+
+<div class="max-w-xl">
+  <div class="flex gap-4 mb-4">
+    <img
+      class="rounded-full shadow-lg size-20 md:size-24"
+      src="/Eslier.png"
+      alt={personalImageAlt}
+    />
+    <a
+      href="https://www.linkedin.com/in/eslier-contreras-donoso/"
+      target="_blank"
+      rel="noopener"
+      class="flex items-center transition md:justify-center md:hover:scale-105"
+    >
+      <Badge>Disponible para trabajar</Badge>
+    </a>
+  </div>
+  <h1
+    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+  >
+    ¡Hola!, Soy Eslier
+  </h1>
+  <p
+    class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-orange-200 [&>strong]:text-orange-500 [&>strong]:font-semibold dark:text-gray-300"
+  >
+  Apasionado por el mundo digital, combino mi formación en <strong>Desarrollo Web</strong> con habilidades en <strong>Marketing y Publicidad</strong> para crear experiencias digitales que conecten con las personas.
+  </p>
+  <nav class="flex flex-wrap gap-4 mt-8">
+    
+    <SocialPill href="https://www.linkedin.com/in/eslier-contreras-donoso/">
+      <LinkedInIcon class="size-5" />
+      LinkedIn
+    </SocialPill>
+    <SocialPill href="https://github.com/EslierCD"> 
+      <GitHubIcon class="size-5" />
+      GitHub
+    </SocialPill>
+    <SocialPill href="https://www.youtube.com/watch?v=U1T0EQcTH-g&t=4s&ab_channel=EslierContrerasDonoso"> 
+      <Youtube class="size-5" />
+      StoryTelling
+    </SocialPill>
+    <SocialPill href="https://drive.google.com/file/d/1QNUVZr1zujTUo0rile058QzamoYfCV99/view"> 
+      <Pdf class="size-5" />
+      CV
+    </SocialPill>
+    <SocialPill href="mailto:esliercd@gmail.com">
+      <MailIcon class="size-4" />
+      Contáctame
+    </SocialPill>
+  </nav>
+</div>

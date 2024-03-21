@@ -1,0 +1,120 @@
+---
+import GitHubIcon from "../icons/GitHubIcon.astro"
+import NextJS from "../icons/NextJS.astro"
+import Tailwind from "../icons/Tailwind.astro"
+import Link from "../icons/Link.astro"
+import Video from "../icons/Video.astro"
+import Adobe from "../icons/Adobe.astro"
+import Ableton from "../icons/Ableton.astro"
+import Pen from "../icons/Pen.astro"
+import LinkButton from "./LinkButton.astro"
+
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  ADOBE: {
+    name: "Adobe",
+    class: "bg-[#FF0000] text-white",
+    icon: Adobe,
+  },
+  ABLETON: {
+    name: "Ableton Live",
+    class: "bg-[#3E403F] text-white",
+    icon: Ableton,
+  },
+}
+const PROJECTS = [
+  {
+    title: "NEW 3DITIONS - Taller de orientación al diseño e impresión 3D",
+    description:
+      "En 20 años, quien no sepa diseñar en 3D será considerado analfabeto. Así fue como creé un el boceto de un taller enfocado al público más jóven. En este proyecto, diseñé un logotipo, una identidad para la marca y una estratégia de Marketing. Además, un catálogo de servicios para fomentar la creatividad y la importáncia de la creación ética de objetos 3D.",
+    link: "https://drive.google.com/file/d/1Eg5g_QMPXzav5YdbKPeCZY4barOsP_5S/view?usp=sharing",
+    image: "/public/3DITIONS.png",
+    tags: [TAGS.ADOBE]
+  },
+  {
+    title: "BBL - Prácticas en agencia de branding",
+    description:
+    "¿Te compras un producto nuevo y en vez de leer las instrucciones buscas un vídeo para aprender a usarlo? Yo soy de esos, y es por eso que en la recta final de mis prácticas tomé la iniciativa de presentarles mi idea para la captación de clientes.",
+    video: "https://drive.google.com/file/d/1gT4887dO5SHK1TROYXYXQWnQsMSYUt84/view",    
+    image: "/public/Lab.png",
+    tags: [TAGS.ADOBE, TAGS.ABLETON]
+  },
+  {
+    title: "DONNA LUISA - Proyecto de rebranding de la marca y captación de clientes",
+    description:
+      "Dona Luisa es una marca de productos de repostería que necesitaba un cambio de imagen. Con un poco de creatividad y mucho amor, diseñé un nuevo logo, una nueva paleta de colores y una nueva tipografía. Además, creé una estrategia de marketing para captar nuevos clientes.",
+      link: "https://drive.google.com/file/d/1NdzwtiN59Q_hdvwcXGQjDAzNc7vylJRI/view",
+      image:"/public/Luisa.png",
+      pen : "https://drive.google.com/file/d/1_v_k1rw7QANAkrqGwi2TsLgT87iNyRYk/view",
+      tags: [TAGS.ADOBE]
+  }
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, video, pen }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="Proyectos EslierCD" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-lg:">
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+          {video && (
+            <LinkButton href={video}>
+              <Video class="size-4" />
+              Video
+            </LinkButton>
+          )}
+          {pen && (
+            <LinkButton href={pen}>
+              <Pen class="size-4" />
+              Flyer
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>
+
+

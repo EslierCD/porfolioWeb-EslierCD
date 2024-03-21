@@ -1,0 +1,30 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCIE = [
+  {
+    date: "Actualmente...",
+    title: "Estudiante de Desarrollo Aplicación Web",
+    company: "Linkia FP",
+    description:
+      "Este curso online me abrió las puertas al desarrollo web. Adquirí las bases de la programación y descubrí que puedo organizarme y cumplir objetivos desde cualquier lugar del mundo. Motivado por este logro, continúo mi aprendizaje de forma autónoma, explorando tecnologías como React, Astro y Tailwind. Mi camino hacia el dominio del desarrollo web sigue en marcha.",
+  },
+  {
+    date: "Febrero 2022",
+    title: "Técnico de Marketing",
+    company: "Barcelona Branding Lab",
+    description:
+      "En mis prácticas en marketing digital, dominé la creación y gestión de campañas en redes sociales, desde el diseño hasta la analítica. Además, aprendí a crear contenido atractivo y a utilizar herramientas para la prospección de clientes y la redacción de contenido web.",
+      link: "https://barcelonabrandinglab.es/que-es-el-branding",
+  },
+]
+---
+
+<ol class="relative mt-14">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>
